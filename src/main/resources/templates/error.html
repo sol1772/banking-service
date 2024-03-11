@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Error</title>
+    <link href="/styles.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div class="container">
+    <h3>Error page</h3>
+    <table class="table table-sm table-bordered table-hover">
+        <caption><h4><i>${title}</i></h4></caption>
+        <tr>
+            <td><i>Exception Name</i></td>
+            <td>${exceptionName}</td>
+        </tr>
+        <tr>
+            <td><i>Exception Message</i></td>
+            <td>${exceptionMessage}</td>
+        </tr>
+        <tr>
+            <td><i>Servlet Name</i></td>
+            <td>${servletName}</td>
+        </tr>
+        <tr>
+            <td><i>Requested URI</i></td>
+            <td>${reqUri}</td>
+        </tr>
+        <tr>
+            <td><i>Status Code</i></td>
+            <td>${statusCode}</td>
+        </tr>
+    </table>
+    <a class="link" href="/">Home</a><br>
+</div>
+</body>
+</html>

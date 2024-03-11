@@ -1,0 +1,50 @@
+version: '2'
+# Define services
+services:
+  # backend service
+  app-server:
+    image: banking-service
+    # Configuration for building the docker image for the backend service
+    build:
+      context: ./ # Use an image built from the specified dockerfile.
+      dockerfile: Dockerfile
+    ports:
+      - "5000:5000" # Forward the exposed port 5000 on the container to port 5000 on the host machine
+    restart: always
+    depends_on:
+      - db
+
+    networks: # Networks to join
+      - backend
+      - frontend
+  # frontend service
+  app-client:
+    build:
+      context: ./ # Use an image built from the specified dockerfile.
+      dockerfile: Dockerfile
+      args:
+        REACT_APP_API_BASE_URL: localhost:8072
+    ports:
+      - "8072:8072" # Map the exposed port 8072 on the container to port 8072 on the host machine
+    restart: always
+    depends_on:
+      - app-server
+    networks:
+      - frontend
+  # Database Service (Apache Derby)
+  db:
+    image: az82/docker-derby
+    ports:
+      - "1527:1527"
+    restart: always
+
+    networks:
+      - backend
+
+# Volumes
+volumes:
+  db-data:
+# Networks to be created to facilitate communication between containers
+networks:
+  backend:
+  frontend:

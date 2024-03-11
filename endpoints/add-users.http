@@ -1,0 +1,70 @@
+### Add users
+POST http://localhost:8072/api/users/add-all
+Content-Type: application/json
+
+[
+  {
+    "phones": [
+      {
+        "id": 1,
+        "userId": 1,
+        "number": "+1234567890"
+      },
+      {
+        "id": 2,
+        "userId": 1,
+        "number": "+1234567098"
+      }
+    ],
+    "emails": [
+      {
+        "id": 1,
+        "userId": 1,
+        "content": "payer@mail.com"
+      }
+    ],
+    "id": 1,
+    "username": "Payer",
+    "login": "payer",
+    "dateOfBirth": "2003-12-30",
+    "account": {
+      "id": 1,
+      "userId": 1,
+      "balance": 1000.00,
+      "initialBalance": 1000.00
+    },
+    "registeredAt": "2024-03-09T20:56:42.543"
+  },
+  {
+    "phones": [
+      {
+        "id": 3,
+        "userId": 2,
+        "number": "+95875972439"
+      }
+    ],
+    "emails": [
+      {
+        "id": 2,
+        "userId": 2,
+        "content": "receiver@mail.com"
+      },
+      {
+        "id": 3,
+        "userId": 2,
+        "content": "payee@mail.com"
+      }
+    ],
+    "id": 2,
+    "username": "Receiver",
+    "login": "receiver",
+    "dateOfBirth": "1997-07-07",
+    "account": {
+      "id": 2,
+      "userId": 2,
+      "balance": 100.00,
+      "initialBalance": 100.00
+    },
+    "registeredAt": "2024-03-09T20:57:52.777"
+  }
+]
